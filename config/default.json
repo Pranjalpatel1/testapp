@@ -1,0 +1,4 @@
+{
+    "mongoURI":"mongodb+srv://pranjal:pranjalis1@cluster0-jnx4q.mongodb.net/<dbname>?retryWrites=true&w=majority"
+   , "baseUrl": "https://http://localhost:3000"
+   }

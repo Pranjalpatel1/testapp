@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>login form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+     <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+	<h1>Donate</h1>
+<form method="POST" action='/donate'>
+	<label for="fn">Name :</label>
+	<input type="text" id="fn" name="name" placeholder="First Name" required>
+    <br>
+	<label for="ml">Male :</label>
+	<input type="radio" name="gender" id="ml" value="Male">
+	<label for="fl">Female :</label>
+	<input type="radio" name="gender" id="fl" value="Female">
+	<label for="oth">Other :</label>
+	<input type="radio" name="gender" id="oth" value="Other">
+	<br>
+	<label for="email">Email :</label>
+	<input type="email" name="email" id="email" required>
+	<br>
+	Blood Group :
+	<select name="blood" placeholder="blood group">
+		<option value="A+">A+</option>
+		<option value="A-">A-</option>
+		<option value="B+">B-</option>
+		<option value="B-">B-</option>
+		<option value="AB+">AB+</option>
+		<option value="AB-">AB-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+	</select>
+	<label for="mn">Mobile No. :</label>
+    <input type="text" id="mn" name="Mobile" placeholder="Mobile Number" required>
+    <br>
+    <label for="st">Street :</label>
+    <input type="text" id="st" name="street" placeholder="street address" required>
+    <label for="mn">city :</label>
+    <input type="text" id="ct" name="city" placeholder="city" required>
+    <br>
+    <label for="state">state:</label>
+	<input type="text" id="state" name="state" placeholder="state" required>
+    <br>
+	I agree to term and conditions : 
+	
+    <br>
+	<button>GO</button>
+</form>
+</body>
+</html>
