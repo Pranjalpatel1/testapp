@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Find Donors</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+         <style>
+         .design{
+         padding: 25px;
+         margin-bottom: 25px;
+         font-size: 25px;
+         font-weight: 250;
+         line-height: 2.1428571435;
+         color: inherit;
+         background-color: transparent;
+      }
+         </style>  
+         </head>
+<body>
+	<h1>Find Donor</h1>
+<form method="POST" action='/find'>
+	
+	Blood Group :
+	<select name="blood" placeholder="blood group">
+		<option value="A+">A+</option>
+		<option value="A-">A-</option>
+		<option value="B+">B-</option>
+		<option value="B-">B-</option>
+		<option value="AB+">AB+</option>
+		<option value="AB-">AB-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+    </select>
+    <br>
+    <label for="mn">city :</label>
+    <input type="text" id="ct" name="city" placeholder="city" >
+    <br>
+	<button>GO</button>
+</form>
+<br>
+
+<br>
+<table class="table table-striped table-responsive">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Blood_group</th>
+        <th>Gender</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>address</th>
+      </tr>
+    </thead>
+    <tbody> 
+        <% datas.forEach( data=>{  %>
+            <tr>
+                <td><%= data.name %></td>
+                <td><%= data.blood %></td>
+                <td><%= data.gender %></td>
+                <td><%= data.email %></td>
+                <td><%= data.phone %></td>
+                <td><%= data.street %> ,<%= data.city %> ,<%= data.state %></td>
+            </tr>
+       <% }) %> 
+    </tbody>
+</table>
+</body>
+</html>

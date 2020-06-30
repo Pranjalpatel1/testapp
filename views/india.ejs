@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CoronaTracker</title>
+</style> <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+    <header id="header" class="header header-hide">
+        <div style="background-color:#CFD8DC; color: black;text-align: center;" class="jumbotron design">
+          <h1 style="font-weight: 350;"class="display-4 mb-7">CORONA TRACKER</h1>
+          <p style="text-align: center;"> (LIVE COVID-19 TRACKING) </p>
+        </div>
+        <!---<h1 style="text-align: center;"><font color="#93f542">CORONA</font> <font color="#93f542">TRACKER</font></h1>
+        <p style="text-align: center;"><a href="#"><font color="#93f542"><img src="home.jpg" width="100" height="40"></font></a></p> 
+        <h3 style="text-align: center;" >(LIVE COVID-19 TRACKING)</h3> 
+        --->
+    </header>
+    <table style="text-align: center; margin-left:auto;margin-right:auto;" width="500px" border="11px" cellspacing="0" cellpadding="10px">
+        <tr>
+            <td style="text-align: center;" colspan="2"><h2><b>Indian Data</b></h2> </td>
+        </tr>
+        <tbody id="global-wise"></tbody>
+    </table>
+    <br>
+    <table style="text-align: center; margin-left:auto;margin-right:auto;" width="70%" border="11px" cellspacing="0" cellpadding="10px">
+        <tr>
+            <td style="text-align: center;" colspan="9"><h2><b>Statewise Data</b></h2> </td>
+        </tr>
+        <tr>
+            <th style="text-align: center;">Sr.No</th>
+            <th style="text-align: center;">State</th>
+            <th style="text-align: center;">ActiveCases</th>
+            <th style="text-align: center;"><font color="#325ba8">TotalConfirmed</font></th>
+            <th style="text-align: center;">NewConfirmed</th>
+            <th style="text-align: center;"><font color="#69a832">TotalRecovered</font></th>
+            <th style="text-align: center;">NewRecovered</th>
+            <th style="text-align: center;"><font color="#a83232">TotalDeaths</font></th>
+            <th style="text-align: center;">NewDeaths</th>
+        </tr>
+        <tbody id="country-wise"></tbody>
+    </table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+    $.ajax({url: "https://api.covid19india.org/data.json",type: "GET",datatype: "JSON",success: function(data){
+            console.log(data);
+            $.each(data.statewise, function(key, value){
+                if(key==0)
+                {
+                $("#global-wise").append("<tr><td>Active"+ "</td><td>" + value.active + "</td></tr>");
+                $("#global-wise").append("<tr><td>Total Confirmed"+ "</td><td>" + value.confirmed + "</td></tr>");
+                $("#global-wise").append("<tr><td>New Confirmed"+ "</td><td>" + value.deltaconfirmed + "</td></tr>");
+                $("#global-wise").append("<tr><td>Total Recovered"+ "</td><td>" + value.recovered + "</td></tr>");
+                $("#global-wise").append("<tr><td>New Recovered"+ "</td><td>" + value.deltarecovered + "</td></tr>");
+                $("#global-wise").append("<tr><td>Total Deaths"+ "</td><td>" + value.deaths + "</td></tr>");
+                $("#global-wise").append("<tr><td>New Deaths"+ "</td><td>" + value.deltadeaths + "</td></tr>");
+                }
+            });
+            $.each(data.statewise, function(key, value){ 
+                if(key!=0)
+                {
+                $("#country-wise").append("<tr>" + 
+                                       "<td>" + key +"</td>" +
+                                        "<td>" + value.state +"</td>" +
+                                        "<td>" + value.active +"</td>" +
+                                        "<td>" + value.confirmed +"</td>" +
+                                        "<td>" + value.deltaconfirmed +"</td>" +
+                                        "<td>" + value.recovered +"</td>" +
+                                        "<td>" + value.deltarecovered +"</td>" +
+                                        "<td>" + value.deaths +"</td>" +
+                                        "<td>" + value.deltadeaths +"</td>" +
+                                        "</tr>");
+                }
+            });
+            }
+            });
+  </script>
+    <style>
+        
+        body {
+  background-image: url("https://websitebackgrounds.itpresent.com/graphics/images/class_ch.jpg");
+ 
+  background-repeat: repeat-x repeat-y;
+}
+    </style>
+    
+</body>
+</html>

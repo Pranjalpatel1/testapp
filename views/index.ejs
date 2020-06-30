@@ -1,1 +1,89 @@
-<h1>helooooo</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Find Donors</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+         <style>
+         .design{
+         padding: 25px;
+         margin-bottom: 25px;
+         font-size: 25px;
+         font-weight: 250;
+         line-height: 2.1428571435;
+         color: inherit;
+         background-color: transparent;
+      }
+         </style>  
+         </head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">CovidWarriors</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./india">India-Stats</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./world">World-data</a>
+                  </li>
+              </ul>
+              <span class="navbar-text">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./donate">Donate</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="./find">FindDonar</a>
+                      </li>
+                </ul>
+              </span>
+            </div>
+          </nav>
+        <div style="background-color:#CFD8DC; color: black;" class="jumbotron design">
+          <h1 style="font-weight: 350;"class="display-4 mb-7">Covid Warriors</h1>
+          <p> Together we can fight against covid-19. Join us to help to save millions of lives </p>
+        </div>
+        <hr>
+
+<div class="d-flex">
+<div class="col-sm-6">
+<h1 class="text-centre display-4">Donate your plasma</h1>
+<br>
+Your plasma can help give live to any other person and help him to survive in this pandemic. 
+<br>
+<a href="./donate"><button class="btn btn-info">donate</button></a>
+</div>
+<div class="col-sm-6">
+    <h1 class="text-centre display-4">Find a donor</h1>
+    <br>
+    Thousands of lives have been safed using plasma thereapy hope you will a plasma donor
+    and you will recover sooner. All the best !!!!
+    <br>
+    <a href="./find" ><button class="btn btn-info">Find donor</button></a>
+</div>
+</div>
+
+<p>
+    <ul>
+         <li> TOTAL CASES = <%= data["confirmed"] %></li>
+         <li> ACTIVE CASES = <%= data["active"] %></li>
+         <li> DISCHRAGED/CURED = <%= data["recovered"] %></li>
+         <li> TOTAL DEATHS = <%= data.deaths %></li>
+    </ul>
+</p>
+</div>
+
+
+</body>
+</html>

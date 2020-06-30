@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CoronaTracker</title>
+</style> <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+    <header id="header" class="header header-hide">
+        <div style="background-color:#CFD8DC; color: black;text-align: center;" class="jumbotron design">
+          <h1 style="font-weight: 350;"class="display-4 mb-7">CORONA TRACKER</h1>
+          <p style="text-align: center;"> (LIVE COVID-19 TRACKING) </p>
+        </div>
+        <!---<h1 style="text-align: center;"><font color="#93f542">CORONA</font> <font color="#93f542">TRACKER</font></h1>
+        <p style="text-align: center;"><a href="#"><font color="#93f542"><img src="home.jpg" width="100" height="40"></font></a></p> 
+        <h3 style="text-align: center;" >(LIVE COVID-19 TRACKING)</h3> 
+        --->
+    </header>
+    <table style="text-align: center; margin-left:auto;margin-right:auto;" width="500px" border="11px" cellspacing="0" cellpadding="10px">
+        <tr>
+            <td style="text-align: center;" colspan="2"><h2><b>Global Data</b></h2> </td>
+        </tr>
+        <tbody id="global-wise"></tbody>
+    </table>
+    <br>
+    <table style="text-align: center; margin-left:auto;margin-right:auto;" width="70%" border="11px" cellspacing="0" cellpadding="10px">
+        <tr>
+            <td style="text-align: center;" colspan="8"><h2><b>Countries Data</b></h2> </td>
+        </tr>
+        <tr>
+            <th style="text-align: center;">Sr.No</th>
+            <th style="text-align: center;">Country</th>
+            <th style="text-align: center;"><font color="#325ba8">TotalConfirmed</font></th>
+            <th style="text-align: center;">NewConfirmed</th>
+            <th style="text-align: center;"><font color="#69a832">TotalRecovered</font></th>
+            <th style="text-align: center;">NewRecovered</th>
+            <th style="text-align: center;"><font color="#a83232">TotalDeaths</font></th>
+            <th style="text-align: center;">NewDeaths</th>
+        </tr>
+        <tbody id="country-wise"></tbody>
+    </table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+    $.ajax({url: "https://api.covid19api.com/summary",type: "GET",datatype: "JSON",success: function(data){
+            console.log(data);
+            console.log(data.Countries[76]);
+
+            $.each(data.Global, function(key, value){
+                $("#global-wise").append("<tr><td>" + key + "</td><td>" + value + "</td></tr>");
+            });
+
+            var sno = 1;
+
+             data.Countries.sort((a,b)=>{
+                return b.TotalConfirmed - a.TotalConfirmed 
+            });
+            $.each(data.Countries, function(key, value){
+                $("#country-wise").append("<tr>" + 
+                                       "<td>" + sno +"</td>" +
+                                        "<td>" + value.Country +"</td>" +
+                                        "<td>" + value.TotalConfirmed +"</td>" +
+                                        "<td>" + value.NewConfirmed +"</td>" +
+                                        "<td>" + value.TotalRecovered +"</td>" +
+                                        "<td>" + value.NewRecovered +"</td>" +
+                                        "<td>" + value.TotalDeaths +"</td>" +
+                                        "<td>" + value.NewDeaths +"</td>" +
+                                        "</tr>");
+                sno++;
+            });
+        }
+    });
+    </script>
+    <style>
+        
+        body {
+  background-image: url("https://websitebackgrounds.itpresent.com/graphics/images/class_ch.jpg");
+ 
+  background-repeat: repeat-x repeat-y;
+  background-image: : 
+}
+    </style>
+    
+</body>
+</html>
